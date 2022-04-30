@@ -101,7 +101,7 @@ function draw() {
   for (let i = 0; i < total; i++) {
 
     let d = 0
-    birdX = random(10, width - 10) + d;
+    birdX = random(20, width - 20) + d;
     birdY = random(20,lineQuantity-350)
     // console.log(birdX)
 
@@ -120,8 +120,9 @@ function drawSmallBird() {
   stroke(255)
   //translate(birdX,birdY)
   strokeWeight(1.5)
-  line(birdX, birdY, birdX + 4, birdY + 4)
-  line(birdX + 4, birdY + 4, birdX + 8, birdY)
+  birdSize = random(4,6)
+  line(birdX, birdY, birdX + birdSize, birdY + birdSize)
+  line(birdX + birdSize, birdY + birdSize, birdX + birdSize*2, birdY)
 }
 
 let rndHW, rndH;
