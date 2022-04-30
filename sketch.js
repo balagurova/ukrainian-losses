@@ -63,8 +63,9 @@ function setup() {
     month: 'long',
     day: 'numeric'
   }
-  dt = Date(table.getColumn('Date').slice(-1))
-  dt = new Date(dt).toLocaleDateString(undefined,options)
+  dt = new Date(Date.parse(table.getColumn('Date').slice(-1)))
+  print(dt)
+  dt = dt.toLocaleDateString('en-UK', options)
 document.getElementById("date").innerHTML = dt;
 }
 
@@ -169,7 +170,7 @@ function drawRemainder(){
     if(remainder>0){
       line(w, height, w, height - rndH - 5)
       translate(w, height - rndH)
-      for (l = 0; l < remainder; l++) {
+      for (l = 0; l < remainder / 2; l++) {
         translate(0, -5)
         line(0, 0, -10, -10)
         line(0, 0, 10, -10)
