@@ -22,7 +22,6 @@ function loadData() {
   
   let bubble = bubbleData[[bubbleData.length - 1]];
   refugees = Intl.NumberFormat().format(bubble['individuals'])
-  console.log(refugees)
   lineQuantity = bubble['individuals'] / 1000;
   
   
@@ -30,13 +29,16 @@ function loadData() {
   lossesArray = table.getColumn('Civilian casualities(OHCHR) - Killed');
   
   
+  
 
-  print(lossesQuantity);
-  total = parseFloat(lossesArray.slice(-1))
+
+  total = parseFloat(lossesArray.slice(-2))
+  console.log(total)
+
 
   injuredArray = table.getColumn('Civilian casualities(OHCHR) - Injured');
-  print(injuredArray);
-  injured = parseFloat(injuredArray.slice(-1))
+
+  injured = parseFloat(injuredArray.slice(-2))
 
 
   //document.getElementById("total").innerHTML = Intl.NumberFormat().format(total);
@@ -46,7 +48,6 @@ function loadData() {
 
 function setup() {
   loadData();
-  print(lineQuantity)
   if(window.innerWidth<800){
     createCanvas(window.innerWidth-36, lineQuantity).parent("#canvasID");
   }
@@ -63,8 +64,7 @@ function setup() {
     month: 'long',
     day: 'numeric'
   }
-  dt = new Date(Date.parse(table.getColumn('Date').slice(-1)))
-  print(dt)
+  dt = new Date(Date.parse(table.getColumn('Date').slice(-2)[0]))
   dt = dt.toLocaleDateString('en-UK', options)
 document.getElementById("date").innerHTML = dt;
 }
@@ -92,7 +92,7 @@ function draw() {
     s += 1;
     // bubbles.push(new Bubble(x, y, lineQuantity, label));
   }
-  // console.log(children)
+
 
 
 
@@ -102,8 +102,7 @@ function draw() {
 
     let d = 0
     birdX = random(20, width - 20) + d;
-    birdY = random(20,lineQuantity-350)
-    // console.log(birdX)
+
 
     drawSmallBird()
     d += 100;
