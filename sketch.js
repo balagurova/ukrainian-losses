@@ -32,13 +32,14 @@ function loadData() {
   
 
 
-  total = parseFloat(lossesArray.slice(-2))
+  total = parseFloat(lossesArray.slice(-2)[0])
   console.log(total)
+
 
 
   injuredArray = table.getColumn('Civilian casualities(OHCHR) - Injured');
 
-  injured = parseFloat(injuredArray.slice(-2))
+  injured = parseFloat(injuredArray.slice(-2)[0])
 
 
   //document.getElementById("total").innerHTML = Intl.NumberFormat().format(total);
@@ -99,7 +100,7 @@ function draw() {
  
 
   for (let i = 0; i < total; i++) {
-
+    
     let d = 0
     birdX = random(20, width - 20) + d;
 
@@ -117,7 +118,7 @@ function draw() {
 
 function drawSmallBird() {
   stroke(255)
-  //translate(birdX,birdY)
+  // translate(birdX,birdY)
   strokeWeight(1.5)
   birdSize = random(4,6)
   line(birdX, birdY, birdX + birdSize, birdY + birdSize)
