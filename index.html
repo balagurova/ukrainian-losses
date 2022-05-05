@@ -5,44 +5,46 @@
     <title>Ukrainian losses</title>
     <script src="p5.min.js"></script>
     <script src="sketch.js"></script>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <!-- <script src="parseText.js"></script> -->
+    <link rel="stylesheet" href="https://use.typekit.net/ktx3ijp.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
     <style>
+        html {
+            font-size: 0.8vw;
+        }
         body {
-            /* margin: 16px 24px; */
-            font-family: 'Input Mono', monospace;
-            font-size: 0.7em;
+            font-family: input-mono, monospace;
             font-weight: 300;
+            font-size: 1rem;
             margin: 0;
         }
 
         .wrapper {
             display: flex;
             justify-content: space-between;
-            padding:0px 16px 0px 16px;
+            padding: 0 1.4rem 0 1.4rem
         }
 
         #canvasID {
             position: relative;
-            margin-bottom: 24px;
-            padding-top: 24px;
+            margin-bottom: 2rem;
+            padding-top: 2rem;
         }
 
         .table {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            padding-top:8px;
+            padding-top: 0.9rem;
         }
 
         .sidebar {
             position: -webkit-sticky;
             position: sticky;
             top: 0;
-            height: calc(100vh - 32px);
+            height: calc(100vh - 3rem);
             width: 240px;
             display: flex;
-            padding-top:24px;
+            padding-top:2rem;
             flex-direction: column;
             justify-content: space-between;
             margin-bottom:0;
@@ -55,13 +57,13 @@
 
 
         .legend, .footer {
-            padding-top:24px;
+            padding-top:2rem;
             padding-bottom:16px;
         }
         .source{
             color: black;
-            padding-top: 24px;
-            padding-bottom:24px;
+            padding-top: 2rem;
+            padding-bottom:2rem;
         }
         
         a, a:hover, a:visited{
@@ -69,16 +71,16 @@
         }
 
         p {
-            padding-bottom:0px;
+            padding-bottom:0;
             margin:0;
         }
 
         .footer{
-            padding-bottom:16px;
+            padding-bottom:1.2rem;
         }
 
         .about{
-            padding-bottom: 16px;
+            padding-bottom: 1.3rem;
         }
 
 
@@ -130,7 +132,7 @@
 
             <div class="legend">
                 <div>One <span style="background: #ffffff; background: linear-gradient(180deg, #ffffff00 0%, #ffffff00 50%, #59B8FC 50%, #59B8FC 100%);
-                ">blue line</span> is 10,000 refugees. One <span style="background: #ffffff; background: linear-gradient(180deg, #ffffff00 0%, #ffffff00 50%, #F5EB02 50%, #F5EB02 100%);
+                ">blue line</span> is 10,000 Ukrainian refugees. One <span style="background: #ffffff; background: linear-gradient(180deg, #ffffff00 0%, #ffffff00 50%, #F5EB02 50%, #F5EB02 100%);
                 ">yellow line</span> is one injured person. One bird is one human loss. 
                 </div>
             </div>
@@ -140,7 +142,7 @@
                 <div class="about">
                     Concept and coding by Anastasiia Balagurova.</div>
                     <div class="about">
-                        <a href="./tangible.html">Tanglible version</a>.  
+                        <a href="./tangible.html">Tanglible version</a>  
                         </div>
             </div>
            

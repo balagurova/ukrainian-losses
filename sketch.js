@@ -98,7 +98,7 @@ function draw() {
     
     let d = 0
     birdX = random(20, width - 20) + d;
-    birdY = random(20, height - 300) + d;
+    birdY = random(20, height -370) + d;
     drawSmallBird()
     d += 100;
   }
