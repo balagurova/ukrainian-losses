@@ -19,17 +19,17 @@ let date;
 // Convert saved Bubble data into Bubble Objects
 function loadData() {
   let bubbleData = data.data.timeseries;
-  
+
   let bubble = bubbleData[[bubbleData.length - 1]];
   refugees = Intl.NumberFormat().format(bubble['individuals'])
   lineQuantity = bubble['individuals'] / 1000;
-  
-  
-  
+
+
+
   lossesArray = table.getColumn('Civilian casualities(OHCHR) - Killed');
-  
-  
-  
+
+
+
 
 
   total = parseFloat(lossesArray.slice(-2)[0])
@@ -43,22 +43,23 @@ function loadData() {
 
 
   //document.getElementById("total").innerHTML = Intl.NumberFormat().format(total);
-//document.getElementById("injuredN").innerHTML = Intl.NumberFormat().format(injured);
+  //document.getElementById("injuredN").innerHTML = Intl.NumberFormat().format(injured);
 }
 
 
 function setup() {
   loadData();
-  if(window.innerWidth<800){
-    createCanvas(window.innerWidth-36, lineQuantity).parent("#canvasID");
+  if (window.innerWidth < 800) {
+    createCanvas(window.innerWidth - 36, lineQuantity).parent("#canvasID");
+  } else {
+    createCanvas(window.innerWidth / 2, lineQuantity).parent("#canvasID");
   }
-  else{createCanvas(window.innerWidth / 2, lineQuantity).parent("#canvasID");}
   noLoop();
   colorMode(HSL, 360, 100, 100);
   document.getElementById("refugees").innerHTML = refugees;
   document.getElementById("injuredN").innerHTML = Intl.NumberFormat().format(injured);
   document.getElementById("total").innerHTML = Intl.NumberFormat().format(total);
-  
+
   //get last date
   let options = {
     year: 'numeric',
@@ -67,18 +68,14 @@ function setup() {
   }
   dt = new Date(Date.parse(table.getColumn('Date').slice(-2)[0]))
   dt = dt.toLocaleDateString('en-UK', options)
-document.getElementById("date").innerHTML = dt;
+  document.getElementById("date").innerHTML = dt;
 }
 
 
 
 let dt;
+
 function draw() {
-
- 
-  
-  
-
   background(255);
   let x = 0;
   let y = 10;
@@ -97,21 +94,18 @@ function draw() {
 
 
 
- 
-
   for (let i = 0; i < total; i++) {
     
     let d = 0
     birdX = random(20, width - 20) + d;
-
-
+    birdY = random(20, height - 300) + d;
     drawSmallBird()
     d += 100;
   }
 
   drawWheat()
   drawRemainder()
- 
+
 }
 
 
@@ -120,25 +114,25 @@ function drawSmallBird() {
   stroke(255)
   // translate(birdX,birdY)
   strokeWeight(1.5)
-  birdSize = random(4,6)
+  birdSize = random(4, 6)
   line(birdX, birdY, birdX + birdSize, birdY + birdSize)
-  line(birdX + birdSize, birdY + birdSize, birdX + birdSize*2, birdY)
+  line(birdX + birdSize, birdY + birdSize, birdX + birdSize * 2, birdY)
 }
 
 let rndHW, rndH;
-let w=20;
+let w = 20;
 let numberOfLeaves, numberOfWheat;
 let remainder;
 
 function drawWheat() {
-  
+
   strokeWeight(2)
   numOfLeaves = 30;
   remainder = injured % numOfLeaves;
   numOfWheat = (injured - remainder) / numOfLeaves / 2;
-  
 
-  
+
+
   for (i = 0; i < numOfWheat; i++) {
     stroke(58, 98, 48)
     rndH = random(20, 200);
@@ -156,29 +150,28 @@ function drawWheat() {
     }
     pop()
     // rndHW = random(20, width - 20)
-    translate(width/numOfWheat-0.9,0)
+    translate(width / numOfWheat - 0.9, 0)
     // w+=10;
 
 
   }
 }
 
-function drawRemainder(){
-  
+function drawRemainder() {
+
   stroke(58, 98, 48)
   //remainder
-  
-    if(remainder>0){
-      line(w, height, w, height - rndH - 5)
-      translate(w, height - rndH)
-      for (l = 0; l < remainder / 2; l++) {
-        translate(0, -5)
-        line(0, 0, -10, -10)
-        line(0, 0, 10, -10)
-      }
 
+  if (remainder > 0) {
+    line(w, height, w, height - rndH - 5)
+    translate(w, height - rndH)
+    for (l = 0; l < remainder / 2; l++) {
+      translate(0, -5)
+      line(0, 0, -10, -10)
+      line(0, 0, 10, -10)
     }
-    
+
+  }
+
 
 }
-
