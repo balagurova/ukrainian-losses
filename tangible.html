@@ -4,42 +4,47 @@
     <meta charset="UTF-8">
     <title>Ukrainian Losses. Tangible version</title>
     <style>
+        html {
+            font-size: 1vw;
+        }
         body {
-            /* margin: 16px 24px; */
-            font-family: 'Input Mono', monospace;
-            font-size: 0.7em;
+            font-family: input-mono, monospace;
             font-weight: 300;
+            font-size: 1rem;
             margin: 0;
         }
 
         .wrapper {
             display: flex;
             justify-content: space-between;
-            padding: 0px 16px 0px 16px;
-            align-content: flex-start;
-            align-items: flex-start
+            padding: 0 1.4rem 0 1.4rem
         }
 
-
+        #canvasID {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-top: 2rem;
+        }
 
         .table {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            padding-top: 8px;
+            padding-top: 0.9rem;
         }
 
         .sidebar {
             position: -webkit-sticky;
             position: sticky;
+            height:100vh;
             top: 0;
-            height: calc(100vh - 32px);
-            width: 16vw;
+            height: calc(100vh - 3rem);
+            width: 20rem;
             display: flex;
-            padding-top: 24px;
+            padding-top:2rem;
             flex-direction: column;
             justify-content: space-between;
-            margin-bottom: 0;
+            margin-bottom:0;
         }
 
         .numbers {
@@ -48,91 +53,77 @@
 
 
 
-        .legend,
-        .footer {
-            padding-top: 24px;
+        .legend, .footer {
+            padding-top:2rem;
+            padding-bottom:1rem;
         }
-
-        .source {
+        .source{
             color: black;
-            padding-top: 24px;
-            padding-bottom: 24px;
+            padding-top: 2rem;
+            padding-bottom:2rem;
         }
-
-        a,
-        a:hover,
-        a:visited {
+        
+        a, a:hover, a:visited{
             color: black;
         }
 
         p {
-            padding-bottom: 0px;
-            margin: 0;
+            padding-bottom:0;
+            margin:0;
         }
 
-        .footer {
-            padding-bottom: 16px;
-            text-decoration: none;
+        .footer{
+            padding-bottom:1.2rem;
         }
 
-        .footer a {
-
-            text-decoration: none;
+        .about{
+            padding-bottom: 1.3rem;
+            font-size: 1rem;
+    width: 20rem;
         }
 
-
-
-        .about {
-            padding-bottom: 16px;
-        }
-
-        .photos {
-            display: flex;
-            flex-direction: row;
-            gap: 8px;
-            align-items: center;
-            margin-bottom: 0;
-
-        }
-
-        img {
-            width: 25.5vw;
-            margin-top: 24px;
-
-        }
 
         @media screen and (max-width: 800px) {
 
-            .sidebar {
-                width: 40vw;
-                height: auto;
-                position: relative;
-            }
+.sidebar {
+   
+    height: 100vh;
+    position: relative;
+    font-size: 1 rem;
+}
 
-            .footer {
-                position: fixed;
-                top: 0;
-                right: 16;
-            }
+.footer {
+    display: none;
+}
 
-            .wrapper {
-                flex-direction: column
-            }
+.wrapper {
+    flex-direction: column
+}
 
-            .photos {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-                align-items: center;
-                margin: 0;
-                padding: 0;
-            }
+.canvas {
+    width: 300px;
+}
 
-            img {
-                width: 100%;
-                margin-top: 24px;
-            }
+.photos {
+            display: flex;
+            width: 70rem;
+            flex-direction: row;
+            gap: 0.8rem;
+            align-items: center;
+            margin-bottom: 0;
         }
+
+.img {
+        width: 23rem;
+    margin-top: 2rem;
+    
+
+        }
+
+}
+        
+
+       
     </style>
 </head>
 
@@ -178,10 +169,10 @@
 
         <div class="photos">
             <!-- <img src="/img/photo_2022-04-30 01.58.59.jpeg" alt="Girl in a jacket" height="600"> -->
-            <img src="img/img-02.jpeg" alt="embroidery data">
-            <img src="img/img-03.jpeg" alt="embroidery data">
+            <img class="img" src="img/img-02.jpeg" alt="embroidery data">
+            <img class="img" src="img/img-03.jpeg" alt="embroidery data">
 
-            <img src="img/img-01.png" alt="embroidery data">
+            <img class="img" src="img/img-01.png" alt="embroidery data">
 
 
         </div>
