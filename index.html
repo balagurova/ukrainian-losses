@@ -104,8 +104,16 @@
         .line img {
             padding-right: 0.5rem;
         }
+        
+        .canvas-mobile {
+            display: none;
+        }
 
         @media screen and (max-width: 800px) {
+
+            .canvas {
+            display: none;
+        }
 
             html {
                 font-size: 2vw;
@@ -154,13 +162,13 @@
                 <div>Ukrainian Losses</div>
                 <div class="table">
                     <div class="categories">
-                        <div class="line"><img src="img/bird0.svg" alt="bird" width="16px" height="16px">
+                        <div class="line">
                             <p>Human losses</p>
                         </div>
-                        <div class="line"><img src="img/wheat0.svg" alt="wheat" width="16px" height="16px">
+                        <div class="line">
                             <p>Injured</p>
                         </div>
-                        <div class="line"><img src="img/line0.svg" alt="line" width="16px" height="16px">
+                        <div class="line">
                             <p>Refugees</p>
                         </div>
                     </div>
@@ -173,10 +181,8 @@
                 </div>
 
                 <div class="legend">
-                    <div>One <span style="background: #ffffff; background: linear-gradient(180deg, #ffffff00 0%, #ffffff00 50%, #59B8FC 50%, #59B8FC 100%);
-                ">blue line</span> [<img src="img/line0.svg" style="padding-top:0px;" alt="bird" width="12px"
-                            height="12px">] is 1,000 Ukrainian refugees. One <span style="background: #ffffff; background: linear-gradient(180deg, #ffffff00 0%, #ffffff00 50%, #F5EB02 50%, #F5EB02 100%);
-                ">yellow line</span> [<img src="img/wheat-line0.svg" style="padding-top:0px;" alt="bird" width="12px"
+                    <div>One blue line [<img src="img/line0.svg" style="padding-top:0px;" alt="bird" width="12px"
+                            height="12px">] is 1,000 Ukrainian refugees. One yellow line of wheat [<img src="img/wheat-line0.svg" style="padding-top:0px;" alt="bird" width="12px"
                             height="12px">] is one injured person. One bird [<img src="img/bird0.svg"
                             style="padding-top:0px;" alt="bird" width="12px" height="12px">] is one human loss.
                     </div>
@@ -188,7 +194,7 @@
                         target="_blank">OHCHR</a>. Last update: <span id="date"></span>
                 </div>
                 <div class="about">
-                    Concept and coding by Anastasiia Balagurova.</div>
+                    Concept and coding <a href="https://balagurova.github.io" target="_blank">by Anastasiia Balagurova.</a></div>
 
             </div>
 
@@ -209,6 +215,7 @@
 
 
         <div class="canvas" id="canvasID"></div>
+        <div class="canvas-mobile" id="canvasID"></div>
 
     </div>
 </body>
