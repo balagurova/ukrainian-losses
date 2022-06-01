@@ -1,13 +1,11 @@
 
-var scribble = new Scribble();    
-
-
 let bubbles = [];
 let data = {}; // Global object to hold results from the loadJSON call
 //let bubbles = []; // Global array to hold all bubble objects
 // Put any asynchronous data loading in preload to complete before "setup" is run
 let birdX, birdY;
 let total, injured, lossesQuantity;
+let rndL;
 
 function preload() {
   let url =
@@ -20,7 +18,6 @@ function preload() {
 let lineQuantity;
 let refugees;
 let date;
-let rndL;
 // Convert saved Bubble data into Bubble Objects
 function loadData() {
   let bubbleData = data.data.timeseries;
@@ -92,7 +89,7 @@ function draw() {
     x = 0;
     y = 0 + s;
     stroke(205, 97, random(45, 65))
-    scribble.scribbleLine(0, i, width, i)
+    line(0, i, width, i)
     s += 1;
     // bubbles.push(new Bubble(x, y, lineQuantity, label));
   }
@@ -119,11 +116,10 @@ function draw() {
 function drawSmallBird() {
   stroke(255)
   // translate(birdX,birdY)
-  strokeWeight(1.5)
-  scribble.roughness = 1;
-  birdSize = random(2, 6)
-  scribble.scribbleLine(birdX, birdY, birdX + birdSize, birdY + birdSize)
-  scribble.scribbleLine(birdX + birdSize, birdY + birdSize, birdX + birdSize * 2, birdY)
+  strokeWeight(1)
+  birdSize = random(3, 6)
+  line(birdX, birdY, birdX + birdSize, birdY + birdSize)
+  line(birdX + birdSize, birdY + birdSize, birdX + birdSize * 2, birdY)
 }
 
 let rndHW, rndH;
@@ -133,7 +129,7 @@ let remainder;
 
 function drawWheat() {
 
-  strokeWeight(1.5)
+  strokeWeight( 1 )
   numOfLeaves = 30;
   remainder = injured % numOfLeaves;
   numOfWheat = (injured - remainder) / numOfLeaves / 2;
@@ -143,18 +139,17 @@ function drawWheat() {
   for (i = 0; i < numOfWheat; i++) {
     stroke(58, 98, 52)
     rndH = random(20, 250);
-    
+    rndL = random(20)*(-1);
     //w = 20;
-    scribble.roughness = 1;
-    scribble.scribbleLine(w, height, w, height - rndH - 5)
+    line(w, height, w, height - rndH - 5)
 
     push()
     translate(w, height - rndH)
     for (j = 0; j < numOfLeaves; j++) {
-      rndL = random(7,10)*(-1);
-      translate(0, -4)
-      scribble.scribbleLine(0, 0, rndL, rndL)
-      scribble.scribbleLine(0, 0, 10, rndL)
+      
+      translate(0, -5)
+      line(0, 0, rndL, rndL)
+      line(0, 0, rndL, rndL)
 
     }
     pop()
@@ -167,17 +162,17 @@ function drawWheat() {
 }
 
 function drawRemainder() {
-
+  strokeWeight(1)
   stroke(58, 98, 48)
   //remainder
 
   if (remainder > 0) {
-    scribble.scribbleLine(w, height, w, height - rndH - 5)
+    line(w, height, w, height - rndH - 5)
     translate(w, height - rndH)
     for (l = 0; l < remainder / 2; l++) {
       translate(0, -5)
-      scribble.scribbleLine(0, 0, -10, -10)
-      scribble.scribbleLine(0, 0, 10, -10)
+      line(0, 0, -10, -10)
+      line(0, 0, 10, -10)
     }
 
   }

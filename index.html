@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Ukrainian losses</title>
     <script src="p5.min.js"></script>
+    <script src="p5.scribble.js"></script>
     <script src="sketch.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/ktx3ijp.css">
     <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
@@ -14,19 +15,19 @@
         body {
             font-family: input-mono, monospace;
             font-weight: 300;
-            font-size: 1rem;
+            font-size: 0.8rem;
             margin: 0;
         }
 
         .wrapper {
             display: flex;
             justify-content: space-between;
-            padding: 0 1.4rem 2rem 1.4rem
+            padding: 0 1.4rem 1rem 1.4rem
         }
 
         #canvasID {
             position: relative;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             padding-top: 2rem;
         }
 
@@ -35,6 +36,7 @@
             flex-direction: row;
             justify-content: space-between;
             padding-top: 0.9rem;
+            width: 16rem;
         }
 
         .sidebar {
@@ -42,8 +44,8 @@
             position: sticky;
             height:100vh;
             top: 0;
-            height: calc(100vh - 5rem);
-            width: 20rem;
+            height: calc(100vh - 2rem);
+            width: 18rem;
             display: flex;
             padding-top:2rem;
             flex-direction: column;
@@ -61,6 +63,7 @@
         .legend, .footer {
             padding-top:2rem;
             padding-bottom:1rem;
+            
         }
         .source{
             color: black;
@@ -77,25 +80,36 @@
             margin:0;
         }
 
-        /* .footer{
-            /* padding-bottom:1.2rem;
-            margin-bottom: 2rem; */
-        /* } */ 
+ .footer{
+     padding-bottom:1.2rem;
+   }  
 
         .about{
             padding-bottom: 1.3rem;
-            font-size: 1rem;
+            font-size: 0.8rem;
     width: 20rem;
         }
 
+        .line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+    }
+
+    .line img{
+        padding-right: 0.5rem;
+    }
 
         @media screen and (max-width: 800px) {
 
+            html{
+                font-size: 2vw;
+            }
+
 .sidebar {
-   
-    height: 95vh;
+    height: calc(100vh - 2rem);
     position: relative;
-    font-size: 1 rem;
+    font-size: 0.8rem;
 }
 
 .footer {
@@ -107,7 +121,7 @@
 }
 
 .canvas {
-    width: 300px;
+    width: 100vw;
 }
 
 .photos {
@@ -125,6 +139,16 @@
 
         }
 
+        .line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+    }
+
+    .line img{
+        padding-right: 0.5rem;
+    }
+
 }
         
 
@@ -139,10 +163,9 @@
                 <div>Ukrainian Losses</div>
             <div class="table">
                 <div class="categories">
-                    <div>Human losses</div>
-                    <!-- <div>Children losses</div> -->
-                    <div>Injured</div>
-                    <div>Refugees</div>
+                    <div class="line"><img src="img/bird0.svg" alt="bird" width="16px" height="16px"> <p>Human losses</p></div>
+                    <div class="line"><img src="img/wheat0.svg" alt="wheat" width="16px" height="16px"> <p>Injured</p></div>
+                    <div class="line"><img src="img/line0.svg" alt="line" width="16px" height="16px"> <p>Refugees</p></div>
                 </div>
                 <div class="numbers">
                     <div id="total">####</div>
@@ -154,8 +177,8 @@
 
             <div class="legend">
                 <div>One <span style="background: #ffffff; background: linear-gradient(180deg, #ffffff00 0%, #ffffff00 50%, #59B8FC 50%, #59B8FC 100%);
-                ">blue line</span> is 10,000 Ukrainian refugees. One <span style="background: #ffffff; background: linear-gradient(180deg, #ffffff00 0%, #ffffff00 50%, #F5EB02 50%, #F5EB02 100%);
-                ">yellow line</span> is one injured person. One bird is one human loss. 
+                ">blue line</span> [<img src="img/line0.svg" style="padding-top:0px;" alt="bird" width="12px" height="12px">] is 1,000 Ukrainian refugees. One <span style="background: #ffffff; background: linear-gradient(180deg, #ffffff00 0%, #ffffff00 50%, #F5EB02 50%, #F5EB02 100%);
+                ">yellow line</span> [<img src="img/wheat-line0.svg" style="padding-top:0px;" alt="bird" width="12px" height="12px">] is one injured person. One bird [<img src="img/bird0.svg" style="padding-top:0px;" alt="bird" width="12px" height="12px">] is one human loss. 
                 </div>
             </div>
             <div class="about">
