@@ -5,7 +5,7 @@ function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 
-delay(1000).then(() => console.log('ran after 1 second1 passed'));
+delay(20).then(() => console.log('ran after 1 second1 passed'));
 
 let canvasDiv = document.getElementById('canvasID');
 let divWidth = canvasDiv.offsetWidth;
