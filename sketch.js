@@ -102,8 +102,8 @@ function draw() {
   for (let i = 0; i < total; i++) {
     
     let d = 0
-    birdX = random(20, width - 20* width * 0.0015) + d;
-    birdY = random(20, height -370* width * 0.0015) + d;
+    birdX = random(20, width - 20 * width * 0.0015) + d;
+    birdY = random(20, height -370 * width * 0.0015) + d;
     drawSmallBird()
     d += 100;
   }
@@ -118,7 +118,14 @@ function draw() {
 function drawSmallBird() {
   stroke(255)
   // translate(birdX,birdY)
-  strokeWeight(1.5)
+
+  if(width > 800){
+    strokeWeight(1.5)
+  }
+  else{
+    strokeWeight(1.3)
+  }
+  
   scribble.roughness = 1;
   birdSize = random(2, 6) * width * 0.0015
   scribble.scribbleLine(birdX, birdY, birdX + birdSize, birdY + birdSize)
@@ -126,13 +133,19 @@ function drawSmallBird() {
 }
 
 let rndHW, rndH;
-let w = 20;
+let w;
 let numberOfLeaves, numberOfWheat;
 let remainder;
 
 function drawWheat() {
 
-  strokeWeight(1.5)
+  if(width > 700){
+    strokeWeight(1.5)
+  }
+  else{
+    strokeWeight(1.3)
+  }
+  
   numOfLeaves = 30;
   remainder = injured % numOfLeaves;
   numOfWheat = (injured - remainder) / numOfLeaves / 2;
@@ -141,9 +154,20 @@ function drawWheat() {
 
   for (i = 0; i < numOfWheat; i++) {
     stroke(58, 98, 52)
-    rndH = random(20, 250) * width * 0.0015;
     
-    //w = 20;
+    if(width > 800){
+      rndH = random(20, 250) * width * 0.0015;
+      w = 20;
+    }
+    else{
+      rndH = random(20, 200) * width * 0.0015;
+      w = 10;
+    }
+    
+    
+    
+
+    
     scribble.roughness = 0.6;
     scribble.scribbleLine(w, height, w, height - rndH  - 5)
 
@@ -154,13 +178,28 @@ function drawWheat() {
 
     for (j = 0; j < numOfLeaves; j++) {
       rndL = random(9,14)*(-1)*width*0.001;
-      translate(0, -4* width*0.0013)
+      if(width > 800){
+        translate(0, -4 * width * 0.001)
+      }
+      else{
+        translate(0, -4 * width * 0.0025)
+      }
+      
       scribble.scribbleLine(0, 0, -rndL, rndL)
       scribble.scribbleLine(0, 0, rndL, rndL)
     }
     pop()
     // rndHW = random(20, width - 20)
-    translate(width / numOfWheat - 0.5, 0)
+   
+    if(width > 800){
+      translate(width / numOfWheat - 0.5, 0)
+
+    }
+    else{
+      translate(width / numOfWheat - 0.2, 0)
+
+    }
+    
     // w+=10;
 
 
@@ -177,7 +216,7 @@ function drawRemainder() {
     translate(w, height - rndH)
     for (l = 0; l < remainder / 2; l++) {
       rndL = random(9,14)*(-1)*width*0.0013;
-      translate(0, -4*width*0.001)
+      translate(0, -4*width*0.0015)
       scribble.scribbleLine(0, 0, -rndL, rndL)
       scribble.scribbleLine(0, 0, rndL, rndL)
     }
