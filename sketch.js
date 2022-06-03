@@ -57,7 +57,15 @@ function loadData() {
 function setup() {
   background(205, 97, 65)
   loadData();
-  createCanvas(window.innerWidth * 0.91, lineQuantity).parent("#canvasID");
+
+  if (window.innerWidth < 800) {
+    createCanvas(window.innerWidth * 0.91, lineQuantity).parent("#canvasID");
+  } else {
+    createCanvas(window.innerWidth / 2, lineQuantity).parent("#canvasID");
+  }
+
+
+
  
   noLoop();
   colorMode(HSL, 360, 100, 100);
