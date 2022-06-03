@@ -101,6 +101,12 @@ p {
     height: 0.7rem;
 }
 
+
+#canvasID{
+    width:50%;
+
+}
+
 @media screen and (max-width: 600px) {
 
     .legend img {
@@ -142,5 +148,10 @@ p {
 
     .line img {
         padding-right: 0.5rem;
+    }
+
+    #canvasID{
+        width:100%;
+
     }
 }

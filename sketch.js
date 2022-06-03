@@ -1,6 +1,11 @@
 var scribble = new Scribble();    
 
 
+let canvasDiv = document.getElementById('canvasID');
+let divWidth = canvasDiv.offsetWidth;
+let divHeight = canvasDiv.offsetHeight;
+
+
 let bubbles = [];
 let data = {}; // Global object to hold results from the loadJSON call
 //let bubbles = []; // Global array to hold all bubble objects
@@ -54,11 +59,8 @@ function loadData() {
 function setup() {
   background(205, 97, 65)
   loadData();
-  if (window.innerWidth < 800) {
-    createCanvas(window.innerWidth *0.91, lineQuantity).parent("#canvasID");
-  } else {
-    createCanvas(window.innerWidth / 2, lineQuantity).parent("#canvasID");
-  }
+  createCanvas(divWidth, lineQuantity).parent("#canvasID");
+ 
   noLoop();
   colorMode(HSL, 360, 100, 100);
   document.getElementById("refugees").innerHTML = refugees;
@@ -91,7 +93,7 @@ function draw() {
     x = 0;
     y = 0 + s;
     stroke(205, 97, random(45, 65))
-    scribble.scribbleLine(0, i, width, i)
+    scribble.scribbleLine(0, i, divWidth, i)
     s += 1;
     // bubbles.push(new Bubble(x, y, lineQuantity, label));
   }
@@ -102,8 +104,8 @@ function draw() {
   for (let i = 0; i < total; i++) {
     
     let d = 0
-    birdX = random(20, width - 20 * width * 0.0015) + d;
-    birdY = random(20, height -370 * width * 0.0015) + d;
+    birdX = random(20* divWidth * 0.0015, divWidth - 20 * divWidth * 0.0015) + d;
+    birdY = random(20* divWidth * 0.0015, height -370 * divWidth * 0.0015) + d;
     drawSmallBird()
     d += 100;
   }
@@ -119,7 +121,7 @@ function drawSmallBird() {
   stroke(255)
   // translate(birdX,birdY)
 
-  if(width > 800){
+  if(windowWidth > 800){
     strokeWeight(1.5)
   }
   else{
@@ -127,7 +129,7 @@ function drawSmallBird() {
   }
   
   scribble.roughness = 1;
-  birdSize = random(2, 6) * width * 0.0015
+  birdSize = random(2, 6) * divWidth * 0.0015
   scribble.scribbleLine(birdX, birdY, birdX + birdSize, birdY + birdSize)
   scribble.scribbleLine(birdX + birdSize, birdY + birdSize, birdX + birdSize * 2, birdY)
 }
@@ -139,7 +141,7 @@ let remainder;
 
 function drawWheat() {
 
-  if(width > 700){
+  if(windowWidth > 800){
     strokeWeight(1.5)
   }
   else{
@@ -155,12 +157,12 @@ function drawWheat() {
   for (i = 0; i < numOfWheat; i++) {
     stroke(58, 98, 52)
     
-    if(width > 800){
-      rndH = random(20, 250) * width * 0.0015;
+    if(windowWidth > 800){
+      rndH = random(20, 250) * divWidth * 0.0015;
       w = 20;
     }
     else{
-      rndH = random(20, 200) * width * 0.0015;
+      rndH = random(20, 200) * divWidth * 0.0015;
       w = 10;
     }
     
@@ -177,12 +179,12 @@ function drawWheat() {
     translate(w, height - rndH)
 
     for (j = 0; j < numOfLeaves; j++) {
-      rndL = random(9,14)*(-1)*width*0.001;
-      if(width > 800){
-        translate(0, -4 * width * 0.001)
+      rndL = random(9,14)*(-1)*divWidth*0.001;
+      if(windowWidth > 800){
+        translate(0, -4)
       }
       else{
-        translate(0, -4 * width * 0.0025)
+        translate(0, -4)
       }
       
       scribble.scribbleLine(0, 0, -rndL, rndL)
@@ -191,12 +193,12 @@ function drawWheat() {
     pop()
     // rndHW = random(20, width - 20)
    
-    if(width > 800){
-      translate(width / numOfWheat - 0.5, 0)
+    if(windowWidth > 800){
+      translate(divWidth / numOfWheat - 0.5, 0)
 
     }
     else{
-      translate(width / numOfWheat - 0.25, 0)
+      translate(divWidth / numOfWheat - 0.25, 0)
 
     }
     
@@ -215,8 +217,8 @@ function drawRemainder() {
     scribble.scribbleLine(w, height, w, height - rndH - 5)
     translate(w, height - rndH)
     for (l = 0; l < remainder / 2; l++) {
-      rndL = random(9,14)*(-1)*width*0.0013;
-      translate(0, -4*width*0.0015)
+      rndL = random(9,14)*(-1)*divWidth*0.0013;
+      translate(0, -4*divWidth*0.0015)
       scribble.scribbleLine(0, 0, -rndL, rndL)
       scribble.scribbleLine(0, 0, rndL, rndL)
     }
