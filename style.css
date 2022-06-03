@@ -109,6 +109,10 @@ p {
 
 @media screen and (max-width: 600px) {
 
+    body{
+        width: 100vw;
+    }
+
     .legend img {
         width: 1rem;
         height: 0.7rem;
@@ -152,6 +156,5 @@ p {
 
     #canvasID{
         width:100%;
-
     }
 }
