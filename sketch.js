@@ -1,10 +1,6 @@
 
 var scribble = new Scribble();   
 
-
-
-
-
 let bubbles = [];
 let data = {}; // Global object to hold results from the loadJSON call
 //let bubbles = []; // Global array to hold all bubble objects
@@ -47,10 +43,6 @@ function loadData() {
   injuredArray = table.getColumn('Civilian casualities(OHCHR) - Injured');
 
   injured = parseFloat(injuredArray.slice(-1))
-
-
-  //document.getElementById("total").innerHTML = Intl.NumberFormat().format(total);
-  //document.getElementById("injuredN").innerHTML = Intl.NumberFormat().format(injured);
 }
 
 
@@ -110,8 +102,8 @@ function draw() {
   for (let i = 0; i < total; i++) {
     
     let d = 0
-    birdX = random(20* width * 0.0015, width - 20 * width * 0.0015) + d;
-    birdY = random(20* width * 0.0015, height -370 * width * 0.0015) + d;
+    birdX = random(20, width - 20) + d;
+    birdY = random(20, height -370) + d;
     drawSmallBird()
     d += 100;
   }
@@ -135,7 +127,7 @@ function drawSmallBird() {
   }
   
   scribble.roughness = 1;
-  birdSize = random(2, 6) * width * 0.0015
+  birdSize = random(2, 6);
   scribble.scribbleLine(birdX, birdY, birdX + birdSize, birdY + birdSize)
   scribble.scribbleLine(birdX + birdSize, birdY + birdSize, birdX + birdSize * 2, birdY)
 }
@@ -164,11 +156,11 @@ function drawWheat() {
     stroke(58, 98, 52)
     
     if(width > 800){
-      rndH = random(20, 250) * width * 0.0015;
+      rndH = random(20, 250);
       w = 20;
     }
     else{
-      rndH = random(20, 250) * width * 0.0015;
+      rndH = random(20, 250);
       w = 10;
     }
     
@@ -226,7 +218,7 @@ function drawRemainder() {
     scribble.scribbleLine(w, height, w, height - rndH - 5)
     translate(w, height - rndH)
     for (l = 0; l < remainder / 2; l++) {
-      rndL = random(9,14)*(-1)*width*0.0013;
+      rndL = random(9,14)*(-1);
       translate(0, -4*width*0.0015)
       scribble.scribbleLine(0, 0, -rndL, rndL)
       scribble.scribbleLine(0, 0, rndL, rndL)
@@ -247,10 +239,3 @@ const btnVisibility = () => {
 document.addEventListener("scroll", () => {
     btnVisibility();
 });
-
-
-function windowResized() {
-  width = canvasDiv.offsetWidth;
-  height = canvasDiv.offsetHeight;
-  resizeCanvas(width, height);
-}
