@@ -1,10 +1,5 @@
 
-var scribble = new Scribble();   
-
-let bubbles = [];
-let data = {}; // Global object to hold results from the loadJSON call
-//let bubbles = []; // Global array to hold all bubble objects
-// Put any asynchronous data loading in preload to complete before "setup" is run
+let scribble = new Scribble();   
 let birdX, birdY;
 let total, injured, lossesQuantity;
 
@@ -117,7 +112,6 @@ function draw() {
 
 function drawSmallBird() {
   stroke(255)
-  // translate(birdX,birdY)
 
   if(width > 800){
     strokeWeight(1.5)
