@@ -94,8 +94,11 @@ p {
     padding-right: 0.5rem;
 }
 
-.canvas-mobile {
-    display: none;
+
+
+.legend img {
+    width: 1rem;
+    height: 0.7rem;
 }
 
 @media screen and (max-width: 600px) {

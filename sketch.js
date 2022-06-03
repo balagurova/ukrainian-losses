@@ -1,4 +1,3 @@
-
 var scribble = new Scribble();    
 
 
@@ -146,16 +145,18 @@ function drawWheat() {
     
     //w = 20;
     scribble.roughness = 0.6;
-    scribble.scribbleLine(w, height, w, height - rndH - 5)
+    scribble.scribbleLine(w, height, w, height - rndH  - 5)
+
+
 
     push()
     translate(w, height - rndH)
-    for (j = 0; j < numOfLeaves; j++) {
-      rndL = random(7 * width * 0.0015,10 * width * 0.0015)*(-1);
-      translate(0, -4)
-      scribble.scribbleLine(0, 0, rndL, rndL)
-      scribble.scribbleLine(0, 0, 10, rndL)
 
+    for (j = 0; j < numOfLeaves; j++) {
+      rndL = random(9,14)*(-1)*width*0.001;
+      translate(0, -4* width*0.0013)
+      scribble.scribbleLine(0, 0, -rndL, rndL)
+      scribble.scribbleLine(0, 0, rndL, rndL)
     }
     pop()
     // rndHW = random(20, width - 20)
@@ -175,12 +176,24 @@ function drawRemainder() {
     scribble.scribbleLine(w, height, w, height - rndH - 5)
     translate(w, height - rndH)
     for (l = 0; l < remainder / 2; l++) {
-      translate(0, -5)
-      scribble.scribbleLine(0, 0, -10, -10)
-      scribble.scribbleLine(0, 0, 10, -10)
+      rndL = random(9,14)*(-1)*width*0.0013;
+      translate(0, -4*width*0.001)
+      scribble.scribbleLine(0, 0, -rndL, rndL)
+      scribble.scribbleLine(0, 0, rndL, rndL)
     }
 
   }
-
-
 }
+
+const btnVisibility = () => {
+  console.log(window.scrollY);
+  if (window.scrollY > 6200) {
+    document.getElementById("footer").style.visibility = "hidden";
+  } else {
+    document.getElementById("footer").style.visibility = "visible";
+  }
+};
+
+document.addEventListener("scroll", () => {
+    btnVisibility();
+});
