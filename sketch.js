@@ -241,3 +241,10 @@ const btnVisibility = () => {
 document.addEventListener("scroll", () => {
     btnVisibility();
 });
+
+
+function windowResized() {
+  divWidth = canvasDiv.offsetWidth;
+  divHeight = canvasDiv.offsetHeight;
+  resizeCanvas(divWidth, divHeight);
+}
