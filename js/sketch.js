@@ -16,7 +16,7 @@ let s = 2;
 
 
 function preload() {
-  scribble = new Scribble(); 
+  // scribble = new Scribble(); 
   url ='https://data.unhcr.org/population/get/timeseries?widget_id=314852&sv_id=54&population_group=5460&frequency=day&fromDate=1900-01-01';
   data = loadJSON(url);
   table = loadTable('https://docs.google.com/spreadsheets/d/e/2PACX-1vQIdedbZz0ehRC0b4fsWiP14R7MdtU1mpmwAkuXUPElSah2AWCURKGALFDuHjvyJUL8vzZAt3R1B5qg/pub?', 'csv', 'header');
@@ -66,7 +66,7 @@ function draw() {
     x = 0;
     y = 0 + s;
     stroke(205, 97, random(45, 65))
-    scribble.scribbleLine(0, i, width, i)
+    line(0, i, width, i)
     s += 1;
     // bubbles.push(new Bubble(x, y, lineQuantity, label));
   }
