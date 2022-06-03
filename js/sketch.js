@@ -38,6 +38,7 @@ function loadData() {
 }
 
 function setup() {
+  pixelDensity(1);
   createCanvas(500, 500).parent("canvasID");
   loadData();
 
