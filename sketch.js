@@ -1,6 +1,5 @@
 
-// var scribble = new Scribble();   
-
+// let scribble = new Scribble();   
 // let bubbles = [];
 // let data = {}; // Global object to hold results from the loadJSON call
 //let bubbles = []; // Global array to hold all bubble objects
@@ -48,19 +47,20 @@
 function setup() {
   
   // loadData();
+  createCanvas(500, 500).parent("#canvasID");
 
-  if (window.innerWidth < 800) {
-    createCanvas(window.innerWidth * 0.91, 1500).parent("#canvasID");
-  } else {
-    createCanvas(window.innerWidth / 2, 500).parent("#canvasID");
-  }
+  // if (window.innerWidth < 800) {
+  //   createCanvas(window.innerWidth * 0.91, 1500).parent("#canvasID");
+  // } else {
+  //   createCanvas(window.innerWidth / 2, 500).parent("#canvasID");
+  // }
 
 
 
  
   // noLoop();
   // colorMode(HSL, 360, 100, 100);
-  background(0)
+  // background(0)
   // document.getElementById("refugees").innerHTML = refugees;
   // document.getElementById("injuredN").innerHTML = Intl.NumberFormat().format(injured);
   // document.getElementById("total").innerHTML = Intl.NumberFormat().format(total);
@@ -78,7 +78,7 @@ function setup() {
 
 
 
-let dt;
+// let dt;
 
 function draw() {
   background(0)
@@ -227,15 +227,15 @@ function draw() {
 //   }
 // }
 
-const btnVisibility = () => {
-  console.log(window.scrollY);
-  if (window.scrollY > 6200) {
-    document.getElementById("footer").style.visibility = "hidden";
-  } else {
-    document.getElementById("footer").style.visibility = "visible";
-  }
-};
+// const btnVisibility = () => {
+//   console.log(window.scrollY);
+//   if (window.scrollY > 6200) {
+//     document.getElementById("footer").style.visibility = "hidden";
+//   } else {
+//     document.getElementById("footer").style.visibility = "visible";
+//   }
+// };
 
-document.addEventListener("scroll", () => {
-    btnVisibility();
-});
+// document.addEventListener("scroll", () => {
+//     btnVisibility();
+// });
