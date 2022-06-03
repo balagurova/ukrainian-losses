@@ -37,14 +37,14 @@ function loadData() {
 
 
 
-  total = parseFloat(lossesArray.slice(-2)[0])
+  total = parseFloat(lossesArray.slice(-1))
   console.log(total)
 
 
 
   injuredArray = table.getColumn('Civilian casualities(OHCHR) - Injured');
 
-  injured = parseFloat(injuredArray.slice(-2)[0])
+  injured = parseFloat(injuredArray.slice(-1))
 
 
   //document.getElementById("total").innerHTML = Intl.NumberFormat().format(total);
@@ -72,7 +72,7 @@ function setup() {
     month: 'long',
     day: 'numeric'
   }
-  dt = new Date(Date.parse(table.getColumn('Date').slice(-2)[0]))
+  dt = new Date(Date.parse(table.getColumn('Date').slice(-1)))
   dt = dt.toLocaleDateString('en-UK', options)
   document.getElementById("date").innerHTML = dt;
 }
