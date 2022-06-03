@@ -100,9 +100,9 @@ p {
 
 @media screen and (max-width: 600px) {
 
-    .canvas {
-    display: none;
-}
+    /* .canvas {
+    display: none; */
+/* } */
 
     html {
         font-size: 2vw;

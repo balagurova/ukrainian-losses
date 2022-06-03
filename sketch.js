@@ -103,8 +103,8 @@ function draw() {
   for (let i = 0; i < total; i++) {
     
     let d = 0
-    birdX = random(20, width - 20) + d;
-    birdY = random(20, height -370) + d;
+    birdX = random(20, width - 20* width * 0.0015) + d;
+    birdY = random(20, height -370* width * 0.0015) + d;
     drawSmallBird()
     d += 100;
   }
@@ -121,7 +121,7 @@ function drawSmallBird() {
   // translate(birdX,birdY)
   strokeWeight(1.5)
   scribble.roughness = 1;
-  birdSize = random(2, 6)
+  birdSize = random(2, 6) * width * 0.0015
   scribble.scribbleLine(birdX, birdY, birdX + birdSize, birdY + birdSize)
   scribble.scribbleLine(birdX + birdSize, birdY + birdSize, birdX + birdSize * 2, birdY)
 }
@@ -142,7 +142,7 @@ function drawWheat() {
 
   for (i = 0; i < numOfWheat; i++) {
     stroke(58, 98, 52)
-    rndH = random(20, 250);
+    rndH = random(20, 250) * width * 0.0015;
     
     //w = 20;
     scribble.roughness = 0.6;
@@ -151,7 +151,7 @@ function drawWheat() {
     push()
     translate(w, height - rndH)
     for (j = 0; j < numOfLeaves; j++) {
-      rndL = random(7,10)*(-1);
+      rndL = random(7 * width * 0.0015,10 * width * 0.0015)*(-1);
       translate(0, -4)
       scribble.scribbleLine(0, 0, rndL, rndL)
       scribble.scribbleLine(0, 0, 10, rndL)
