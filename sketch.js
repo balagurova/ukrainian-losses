@@ -55,7 +55,7 @@ function setup() {
   background(205, 97, 65)
   loadData();
   if (window.innerWidth < 800) {
-    createCanvas(window.innerWidth - 36, lineQuantity).parent("#canvasID");
+    createCanvas(window.innerWidth *0.91, lineQuantity).parent("#canvasID");
   } else {
     createCanvas(window.innerWidth / 2, lineQuantity).parent("#canvasID");
   }
@@ -196,7 +196,7 @@ function drawWheat() {
 
     }
     else{
-      translate(width / numOfWheat - 0.2, 0)
+      translate(width / numOfWheat - 0.25, 0)
 
     }
     
