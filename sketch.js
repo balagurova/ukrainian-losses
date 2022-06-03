@@ -145,7 +145,7 @@ function drawWheat() {
     rndH = random(20, 250);
     
     //w = 20;
-    scribble.roughness = 1;
+    scribble.roughness = 0.6;
     scribble.scribbleLine(w, height, w, height - rndH - 5)
 
     push()
