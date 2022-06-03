@@ -41,7 +41,6 @@ function loadData() {
 
 
   total = parseFloat(lossesArray.slice(-1))
-  console.log(total)
 
 
 
@@ -120,7 +119,7 @@ function drawSmallBird() {
   stroke(255)
   // translate(birdX,birdY)
 
-  if(width*2 > 800){
+  if(width > 800){
     strokeWeight(1.5)
   }
   else{
@@ -140,7 +139,7 @@ let remainder;
 
 function drawWheat() {
 
-  if(width*2 > 800){
+  if(width > 800){
     strokeWeight(1.5)
   }
   else{
@@ -156,7 +155,7 @@ function drawWheat() {
   for (i = 0; i < numOfWheat; i++) {
     stroke(58, 98, 52)
     
-    if(width*2 > 800){
+    if(width > 800){
       rndH = random(20, 250) * width * 0.0015;
       w = 20;
     }
@@ -181,7 +180,7 @@ function drawWheat() {
       rndL = random(9,14)*(-1)*width*0.001;
       
 
-      if(width*2 > 800){
+      if(width > 800){
         translate(0, -4)
       }
       else{
@@ -195,7 +194,7 @@ function drawWheat() {
     pop()
     // rndHW = random(20, width - 20)
    
-    if(width*2 > 800){
+    if(width > 800){
       translate(width / numOfWheat - 0.5, 0)
 
     }
