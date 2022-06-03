@@ -9,6 +9,10 @@ let scribble;
 let bubbleData = [];
 let data = [];
 let url;
+let dt;
+let x = 0;
+let y = 10;
+let s = 2;
 
 
 function preload() {
@@ -32,8 +36,40 @@ function loadData() {
 function setup() {
   createCanvas(500, 500).parent("canvasID");
   loadData();
+
+  if (window.innerWidth < 800) {
+    createCanvas(window.innerWidth * 0.91, lineQuantity).parent("#canvasID");
+  } else {
+    createCanvas(window.innerWidth / 2, lineQuantity).parent("#canvasID");
+  }
+
+  noLoop();
+  colorMode(HSL, 360, 100, 100);
+  document.getElementById("refugees").innerHTML = refugees;
+  document.getElementById("injuredN").innerHTML = Intl.NumberFormat().format(injured);
+  document.getElementById("total").innerHTML = Intl.NumberFormat().format(total);
+
+  let options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }
+  dt = new Date(Date.parse(table.getColumn('Date').slice(-1)))
+  dt = dt.toLocaleDateString('en-UK', options)
+  document.getElementById("date").innerHTML = dt;
 }
 
 function draw() {
-  background(255,0,0)
+  background(205, 97, 65)
+  
+  for (let i = 0; i < lineQuantity; i++) {
+    x = 0;
+    y = 0 + s;
+    stroke(205, 97, random(45, 65))
+    scribble.scribbleLine(0, i, width, i)
+    s += 1;
+    // bubbles.push(new Bubble(x, y, lineQuantity, label));
+  }
+
+
 }
