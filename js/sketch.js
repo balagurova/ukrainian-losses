@@ -132,7 +132,7 @@ function drawWheat() {
     
     if(window.innerWidth > 800){
       rndH = random(20, 250);
-      w = 20;
+      w = 24;
     }
     else{
       rndH = random(20, 250);
@@ -143,7 +143,7 @@ function drawWheat() {
     
 
     
-    scribble.roughness = 0.6;
+    scribble.roughness = 0.3;
     scribble.scribbleLine(w, height, w, height - rndH  - 5)
 
 
@@ -170,7 +170,7 @@ function drawWheat() {
     // rndHW = random(20, width - 20)
    
     if(window.innerWidth > 800){
-      translate(width / numOfWheat - 0.5, 0)
+      translate(width / numOfWheat - 0.3, 0)
 
     }
     else{
